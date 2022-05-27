@@ -1,0 +1,35 @@
+<html>
+<head>
+<style>
+#holder {
+  padding: 100px;
+  text-align: center;
+  border: 5px dotted silver;
+}
+</style>
+</head>
+<body>
+<div id="holder">
+  Drag your file here
+</div>
+
+<script>
+  const holder = document.getElementById('holder');
+  holder.ondragover = () => {
+    return false;
+  };
+  holder.ondragleave = holder.ondragend = () => {
+    return false;
+  };
+  holder.ondrop = (e) => {
+    e.preventDefault();
+    console.log(e.dataTransfer)
+    for (let f of e.dataTransfer.files) {
+      console.log("f", f)
+      console.log('File(s) you dragged here: ', f.path);
+    }
+    return false;
+  };
+</script>
+</body>
+</html>
