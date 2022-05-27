@@ -25,6 +25,7 @@
     e.preventDefault();
     console.log(e.dataTransfer)
     for (let f of e.dataTransfer.files) {
+      alert(f.path)
       console.log("f", f)
       console.log('File(s) you dragged here: ', f.path);
     }
